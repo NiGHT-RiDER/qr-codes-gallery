@@ -35,5 +35,3 @@ export const GalleryImage: NextPage<Props> = (props) => {
     </a>
   );
 }
-
-git remote add origin https://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@github.com/NiGHT-RiDER/qr-codes-gallery.git
