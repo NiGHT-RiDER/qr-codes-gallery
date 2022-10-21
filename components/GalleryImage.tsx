@@ -5,6 +5,7 @@ import { useState } from 'react';
 interface Props {
   imgSrc: string;
   name: string;
+  link:string;
 }
 
 function cn(...classes: string[]) {
@@ -31,6 +32,7 @@ export const GalleryImage: NextPage<Props> = (props) => {
           onLoadingComplete={() => setLoading(false)}
         />
       </div>
+      <h3 className="mt-4 text-sm text-gray-700" ><a href={props.link}>@{props.name}</a></h3>
       <p className="mt-1 text-lg font-medium text-gray-900">{props.name}</p>
     </a>
   );
