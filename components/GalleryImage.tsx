@@ -1,11 +1,11 @@
 import { NextPage } from "next";
-import Image from 'next/image';
-import { useState } from 'react';
+import React from "react";
+import { ComputerDesktopIcon } from '@heroicons/react/24/outline';
 
 interface Props {
   imgSrc: string;
   name: string;
-  link:string;
+  link: string;
 }
 
 function cn(...classes: string[]) {
@@ -13,27 +13,9 @@ function cn(...classes: string[]) {
 }
 
 export const GalleryImage: NextPage<Props> = (props) => {
-  const [isLoading, setLoading] = useState(true);
-
   return (
-    <a href="#" className="group">
-      <div className="w-full aspect-w-1 aspect-h-1 bg-gray-200 rounded-lg overflow-hidden xl:aspect-w-7 xl:aspect-h-8">
-        <Image
-          alt=""
-          src={props.imgSrc}
-          layout="fill"
-          objectFit="contain"
-          className={cn(
-            'group-hover:opacity-75 duration-700 ease-in-out',
-            isLoading
-              ? 'grayscale blur-2xl scale-100'
-              : 'grayscale-0 blur-0 scale-100'
-          )}
-          onLoadingComplete={() => setLoading(false)}
-        />
-      </div>
-      <h3 className="mt-4 text-sm text-gray-700" ><a href={props.link}>@{props.name}</a></h3>
-      <p className="mt-1 text-lg font-medium text-gray-900">{props.name}</p>
+    <a href={props.link} className="inline-flex justify-center items-center p-5 text-base font-medium text-gray-500 bg-gray-200 rounded-lg hover:text-gray-100 hover:bg-gray-400 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700 dark:hover:text-white">
+      <span className="w-full">{props.name}</span>
     </a>
   );
 }
